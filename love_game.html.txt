@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给我最爱的宝贝❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        love: {
+                            100: '#ffe6ea',
+                            200: '#ffccd5',
+                            300: '#ffb3c0',
+                            400: '#ff99ab',
+                            500: '#ff8096',
+                            600: '#ff6681',
+                            700: '#ff4d6d',
+                            800: '#ff3358',
+                            900: '#ff1a43',
+                        }
+                    },
+                    fontFamily: {
+                        romantic: ['Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .animate-float-delay-1 {
+                animation: float 6s ease-in-out 1s infinite;
+            }
+            .animate-float-delay-2 {
+                animation: float 6s ease-in-out 2s infinite;
+            }
+            .animate-float-delay-3 {
+                animation: float 6s ease-in-out 3s infinite;
+            }
+            .animate-float-delay-4 {
+                animation: float 6s ease-in-out 4s infinite;
+            }
+            .animate-fade-in {
+                animation: fadeIn 1.5s ease-in-out forwards;
+            }
+            .animate-slide-up {
+                animation: slideUp 1s ease-out forwards;
+            }
+            .animate-scale {
+                animation: scale 1.5s ease-in-out infinite;
+            }
+            .bg-gradient-love {
+                background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            }
+            .heart-beat {
+                animation: heartBeat 1.5s ease-in-out infinite;
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.2); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.2); }
+            70% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-love min-h-screen overflow-x-hidden font-romantic">
+    <!-- 爱心背景装饰 -->
+    <div class="fixed inset-0 pointer-events-none opacity-20">
+        <i class="fa fa-heart absolute text-love-500 text-4xl animate-float" style="left: 10%; top: 10%"></i>
+        <i class="fa fa-heart absolute text-love-600 text-3xl animate-float-delay-1" style="left: 25%; top: 25%"></i>
+        <i class="fa fa-heart absolute text-love-700 text-2xl animate-float-delay-2" style="left: 80%; top: 20%"></i>
+        <i class="fa fa-heart absolute text-love-400 text-3xl animate-float-delay-3" style="left: 70%; top: 70%"></i>
+        <i class="fa fa-heart absolute text-love-500 text-2xl animate-float-delay-4" style="left: 15%; top: 85%"></i>
+        <i class="fa fa-heart absolute text-love-600 text-xl animate-float" style="left: 40%; top: 60%"></i>
+        <i class="fa fa-heart absolute text-love-700 text-2xl animate-float-delay-1" style="left: 60%; top: 40%"></i>
+        <i class="fa fa-heart absolute text-love-400 text-xl animate-float-delay-2" style="left: 30%; top: 30%"></i>
+        <i class="fa fa-heart absolute text-love-500 text-3xl animate-float-delay-3" style="left: 90%; top: 50%"></i>
+        <i class="fa fa-heart absolute text-love-600 text-2xl animate-float-delay-4" style="left: 50%; top: 10%"></i>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container mx-auto px-4 py-10 min-h-screen flex flex-col items-center justify-center relative z-10">
+        <!-- 欢迎页面 -->
+        <div id="welcomePage" class="w-full max-w-md bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 text-center animate-fade-in">
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-love-700 mb-4 text-shadow-lg">亲爱的宝贝</h1>
+            <div class="h-16 w-16 mx-auto mb-6 heart-beat">
+                <i class="fa fa-heart text-[clamp(3rem,8vw,4rem)] text-love-700"></i>
+            </div>
+            <p class="text-gray-700 mb-8 text-[clamp(1rem,3vw,1.2rem)] leading-relaxed">
+                今天是特别的一天，我准备了一个小惊喜给你，希望你会喜欢~
+            </p>
+            <button id="startBtn" class="bg-love-600 hover:bg-love-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                开始惊喜 <i class="fa fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+
+        <!-- 第一页：爱的告白 -->
+        <div id="page1" class="w-full max-w-md bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 text-center hidden">
+            <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-bold text-love-700 mb-6 text-shadow">爱的告白</h2>
+            <div class="mb-8">
+                <p class="text-gray-700 mb-4 text-[clamp(1rem,3vw,1.1rem)] leading-relaxed animate-slide-up opacity-0" style="animation-delay: 0.2s">
+                    第一次见到你的时候，我的心就像被丘比特的箭射中了一样。
+                </p>
+                <p class="text-gray-700 mb-4 text-[clamp(1rem,3vw,1.1rem)] leading-relaxed animate-slide-up opacity-0" style="animation-delay: 0.5s">
+                    你的笑容如阳光般温暖，你的眼睛像星辰般璀璨。
+                </p>
+                <p class="text-gray-700 mb-4 text-[clamp(1rem,3vw,1.1rem)] leading-relaxed animate-slide-up opacity-0" style="animation-delay: 0.8s">
+                    和你在一起的每一天，都是我生命中最美好的时光。
+                </p>
+                <p class="text-gray-700 text-[clamp(1rem,3vw,1.1rem)] leading-relaxed animate-slide-up opacity-0" style="animation-delay: 1.1s">
+                    我爱你，不仅是因为你的美丽，更是因为你那颗善良的心。
+                </p>
+            </div>
+            <button id="nextBtn1" class="bg-love-600 hover:bg-love-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                下一页 <i class="fa fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+
+        <!-- 第二页：美好回忆 -->
+        <div id="page2" class="w-full max-w-md bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 text-center hidden">
+            <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-bold text-love-700 mb-6 text-shadow">美好回忆</h2>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300 animate-slide-up opacity-0" style="animation-delay: 0.2s">
+                    <img src="https://picsum.photos/seed/memory1/300/300" alt="我们的第一张合照" class="w-full h-40 object-cover">
+                    <p class="p-2 bg-love-100 text-love-700 font-medium">第一次约会</p>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300 animate-slide-up opacity-0" style="animation-delay: 0.4s">
+                    <img src="https://picsum.photos/seed/memory2/300/300" alt="一起看日落的场景" class="w-full h-40 object-cover">
+                    <p class="p-2 bg-love-100 text-love-700 font-medium">浪漫日落</p>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300 animate-slide-up opacity-0" style="animation-delay: 0.6s">
+                    <img src="https://picsum.photos/seed/memory3/300/300" alt="一起旅行的风景" class="w-full h-40 object-cover">
+                    <p class="p-2 bg-love-100 text-love-700 font-medium">旅行时光</p>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300 animate-slide-up opacity-0" style="animation-delay: 0.8s">
+                    <img src="https://picsum.photos/seed/memory4/300/300" alt="庆祝生日的场景" class="w-full h-40 object-cover">
+                    <p class="p-2 bg-love-100 text-love-700 font-medium">生日惊喜</p>
+                </div>
+            </div>
+            <button id="nextBtn2" class="bg-love-600 hover:bg-love-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                下一页 <i class="fa fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+
+        <!-- 第三页：爱的承诺 -->
+        <div id="page3" class="w-full max-w-md bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 text-center hidden">
+            <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-bold text-love-700 mb-6 text-shadow">爱的承诺</h2>
+            <div class="mb-8">
+                <p class="text-gray-700 mb-4 text-[clamp(1rem,3vw,1.1rem)] leading-relaxed animate-slide-up opacity-0" style="animation-delay: 0.2s">
+                    我承诺，无论顺境还是逆境，我都会一直在你身边。
+                </p>
+                <p class="text-gray-700 mb-4 text-[clamp(1rem,3vw,1.1rem)] leading-relaxed animate-slide-up opacity-0" style="animation-delay: 0.5s">
+                    我会珍惜我们在一起的每一刻，创造更多美好的回忆。
+                </p>
+                <p class="text-gray-700 mb-4 text-[clamp(1rem,3vw,1.1rem)] leading-relaxed animate-slide-up opacity-0" style="animation-delay: 0.8s">
+                    我会尊重你、支持你，和你一起成长。
+                </p>
+                <p class="text-gray-700 text-[clamp(1rem,3vw,1.1rem)] leading-relaxed animate-slide-up opacity-0" style="animation-delay: 1.1s">
+                    我会用我的一生去爱你，直到永远。
+                </p>
+            </div>
+            <button id="nextBtn3" class="bg-love-600 hover:bg-love-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                最后一页 <i class="fa fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+
+        <!-- 最后一页：爱的礼物 -->
+        <div id="finalPage" class="w-full max-w-md bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 text-center hidden">
+            <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-bold text-love-700 mb-6 text-shadow">爱的礼物</h2>
+            <div class="mb-8 relative">
+                <div id="giftBox" class="w-48 h-48 mx-auto bg-love-600 rounded-xl shadow-lg cursor-pointer transform hover:scale-105 transition-all duration-300 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-love-700 rounded-t-xl" style="height: 50%; top: 0;"></div>
+                    <div class="absolute inset-0 bg-love-700 rounded-b-xl" style="height: 50%; bottom: 0;"></div>
+                    <div class="absolute inset-0 bg-love-700 w-12 mx-auto" style="left: 0; right: 0;"></div>
+                    <div class="absolute inset-0 bg-love-700 h-12 my-auto" style="top: 0; bottom: 0;"></div>
+                    <i class="fa fa-gift text-white text-5xl z-10"></i>
+                </div>
+                <div id="giftContent" class="hidden animate-fade-in">
+                    <div class="w-48 h-48 mx-auto bg-love-100 rounded-xl shadow-lg flex items-center justify-center">
+                        <i class="fa fa-heart text-love-700 text-7xl heart-beat"></i>
+                    </div>
+                    <p class="mt-4 text-love-700 font-bold text-xl">我爱你永远不变</p>
+                    <p class="mt-2 text-gray-700">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</p>
+                </div>
+            </div>
+            <button id="restartBtn" class="bg-love-600 hover:bg-love-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                再看一次 <i class="fa fa-refresh ml-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有页面元素
+            const welcomePage = document.getElementById('welcomePage');
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            const page3 = document.getElementById('page3');
+            const finalPage = document.getElementById('finalPage');
+            
+            // 获取按钮元素
+            const startBtn = document.getElementById('startBtn');
+            const nextBtn1 = document.getElementById('nextBtn1');
+            const nextBtn2 = document.getElementById('nextBtn2');
+            const nextBtn3 = document.getElementById('nextBtn3');
+            const restartBtn = document.getElementById('restartBtn');
+            const giftBox = document.getElementById('giftBox');
+            const giftContent = document.getElementById('giftContent');
+            
+            // 页面切换函数
+            function showPage(page) {
+                // 隐藏所有页面
+                welcomePage.classList.add('hidden');
+                page1.classList.add('hidden');
+                page2.classList.add('hidden');
+                page3.classList.add('hidden');
+                finalPage.classList.add('hidden');
+                
+                // 显示指定页面
+                page.classList.remove('hidden');
+                
+                // 重置动画元素
+                resetAnimations(page);
+            }
+            
+            // 重置动画元素
+            function resetAnimations(page) {
+                const animatedElements = page.querySelectorAll('.animate-slide-up, .animate-fade-in');
+                animatedElements.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = '';
+                    }, 10);
+                });
+            }
+            
+            // 事件监听
+            startBtn.addEventListener('click', () => showPage(page1));
+            nextBtn1.addEventListener('click', () => showPage(page2));
+            nextBtn2.addEventListener('click', () => showPage(page3));
+            nextBtn3.addEventListener('click', () => showPage(finalPage));
+            restartBtn.addEventListener('click', () => showPage(welcomePage));
+            
+            // 礼物盒点击事件
+            giftBox.addEventListener('click', function() {
+                // 添加打开动画
+                giftBox.classList.add('animate-scale');
+                setTimeout(() => {
+                    giftBox.style.display = 'none';
+                    giftContent.style.display = 'block';
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
+    
